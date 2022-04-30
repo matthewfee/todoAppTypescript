@@ -11,15 +11,15 @@ interface IProps {
 const ToDoList = (props: IProps) => {
   const { toDoItems, setToDoItems } = props
 
-  const deleteItem = (e: any): void => {
-    let index = e.target.value
+  const deleteItem = (e: React.FormEvent<HTMLInputElement>): void => {
+    const index: number = parseInt(e.currentTarget.value)
     let arr = [...toDoItems]
     arr.splice(index, 1)
     setToDoItems(arr)
   }
 
-  const handleCheck = (e: any): void => {
-    const index = e.target.value
+  const handleCheck = (e: React.FormEvent<HTMLInputElement>): void => {
+    const index: number = parseInt(e.currentTarget.value)
     let arr = [...toDoItems]
     let item = arr[index]
     item.checked = !item.checked

@@ -1,5 +1,7 @@
+import { storageKey } from '../../consts/consts'
 import { addToStorage } from './storageAPIhelper'
-import { storageKey } from '../../src/App'
+
+//tests when new items are added to local storage
 
 const localStorageMock = (function () {
   let store = new Map()

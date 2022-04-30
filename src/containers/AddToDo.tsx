@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Button, Container } from 'react-bootstrap'
 import { IState as Props } from '../App'
+import { addToDo } from '../tests/addHelper'
 
 interface IProps {
   toDoItems: Props['toDoItems']
@@ -12,11 +13,11 @@ function AddToDo({ toDoItems, setToDoItems }: IProps) {
   const [description, setDescription] = useState<string>('')
 
   const handleName = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    setName(e.target.value)
+    setName(e.currentTarget.value)
   }
 
   const handleDescription = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    setDescription(e.target.value)
+    setDescription(e.currentTarget.value)
   }
 
   const addItem = (): void => {
@@ -26,9 +27,9 @@ function AddToDo({ toDoItems, setToDoItems }: IProps) {
       return
     }
 
-    let arr = [...toDoItems]
-    arr.push({ name, description, checked: false })
-    setToDoItems(arr)
+    const newState = addToDo(toDoItems, { name, description, checked: false })
+
+    setToDoItems(newState)
 
     // reset values to empty
     setName('')

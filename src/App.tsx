@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import ToDoList from './containers/ToDoList'
 import AddToDo from './containers/AddToDo'
-import { addToStorage } from '../tests/mocks/storageAPIhelper'
-// import 'bootstrap/dist/css/bootstrap.min.css'
+import { addToStorage } from './tests/mocks/storageAPIhelper'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import { storageKey } from './consts/consts'
 
 export interface IState {
   toDoItems: {
@@ -22,10 +23,10 @@ export interface IState {
   >
 }
 
-export const storageKey = 'todo-items'
-
 function App() {
   const [toDoItems, setToDoItems] = useState<IState['toDoItems']>([])
+
+  //loads ToDos from local storage
 
   useEffect(() => {
     const items = localStorage.getItem(storageKey)
@@ -35,6 +36,8 @@ function App() {
       setToDoItems(parsed)
     }
   }, [])
+
+  //updates local storage each time ToDoItems are changed
 
   useEffect(() => {
     if (toDoItems.length > 0) {

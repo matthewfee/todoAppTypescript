@@ -1,6 +1,8 @@
-import { addTodo } from './addHelper'
+import { addToDo } from './addHelper'
 
-describe('addTodo', () => {
+// tests adding a single todo to an array
+
+describe('addToDo', () => {
   it('should add todo to the list', () => {
     const startTodos = [
       { name: 'one', description: 'description one', checked: false },
@@ -19,7 +21,7 @@ describe('addTodo', () => {
       { name: 'three', description: 'description three', checked: false }
     ]
 
-    const result = addTodo(startTodos, newTodo)
+    const result = addToDo(startTodos, newTodo)
     expect(result).toEqual(expected)
   })
 })
