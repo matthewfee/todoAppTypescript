@@ -42,7 +42,6 @@ function App() {
   useEffect(() => {
     if (toDoItems.length > 0) {
       addToStorage(toDoItems)
-      // localStorage.setItem(storageKey, JSON.stringify(toDoItems))
     }
   }, [toDoItems])
 

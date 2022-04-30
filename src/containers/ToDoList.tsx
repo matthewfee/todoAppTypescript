@@ -55,5 +55,4 @@ const ToDoList = (props: IProps) => {
   )
 }
 
-// <ToDoItem name={'name-test'} description={'description'}></ToDoItem>
 export default ToDoList
