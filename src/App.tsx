@@ -37,14 +37,6 @@ function App() {
     }
   }, [])
 
-  //updates local storage each time ToDoItems are changed
-
-  useEffect(() => {
-    if (toDoItems.length > 0) {
-      addToStorage(toDoItems)
-    }
-  }, [toDoItems])
-
   // checks if there are items to do
 
   const workToDo = toDoItems.length > 0 ? true : false

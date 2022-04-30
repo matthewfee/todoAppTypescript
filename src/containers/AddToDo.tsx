@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Button, Container } from 'react-bootstrap'
 import { IState as Props } from '../App'
 import { addToDo } from '../tests/addHelper'
+import { addToStorage } from '../tests/mocks/storageAPIhelper'
 
 interface IProps {
   toDoItems: Props['toDoItems']
@@ -29,7 +30,11 @@ function AddToDo({ toDoItems, setToDoItems }: IProps) {
 
     const newState = addToDo(toDoItems, { name, description, checked: false })
 
+    //adds item to state
     setToDoItems(newState)
+
+    //adds item to localStorage
+    addToStorage(toDoItems)
 
     // reset values to empty
     setName('')
